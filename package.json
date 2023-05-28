@@ -1,0 +1,71 @@
+{
+  "name": "remix-mdx-blog",
+  "version": "0.0.1",
+  "description": "A light blog usage remix with mdx",
+  "keywords": [
+    "blog",
+    "mdx",
+    "react",
+    "remix",
+    "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yyong008/remix-mdx-blog.git"
+  },
+  "license": "MIT",
+  "author": "Magnesium",
+  "scripts": {
+    "build": "remix build",
+    "dev": "remix dev",
+    "e2e": "cypress open",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write app/*",
+    "start": "remix-serve build",
+    "test": "vitest",
+    "typecheck": "tsc"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "dependencies": {
+    "@mdx-js/esbuild": "^2.3.0",
+    "@remix-run/css-bundle": "^1.16.1",
+    "@remix-run/node": "^1.16.1",
+    "@remix-run/react": "^1.16.1",
+    "@remix-run/serve": "^1.16.1",
+    "esbuild": "^0.17.19",
+    "github-markdown-css": "^5.2.0",
+    "glob": "^10.2.5",
+    "highlight.js": "^11.8.0",
+    "isbot": "^3.6.8",
+    "mdx-bundler": "^9.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rehype-external-links": "^2.1.0",
+    "rehype-highlight": "^6.0.0",
+    "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.16.1",
+    "@remix-run/eslint-config": "^1.16.1",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "cypress": "^12.13.0",
+    "eslint": "^8.38.0",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^5.0.4",
+    "vitest": "^0.31.1"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

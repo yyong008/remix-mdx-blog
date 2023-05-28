@@ -1,0 +1,55 @@
+---
+title: "mdx 介绍文档库"
+summary: "MDX is an authorable format that lets you seamlessly write JSX in your markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content. This makes writing long-form content with components a blast. 🚀"
+date: "2022-08-30"
+tags: ["javascript"]
+image: "/logo.svg"
+---
+
+# Markdown for the component era
+
+[MDX][website] is an authorable format that lets you seamlessly write JSX in
+your markdown documents.
+You can import components, such as interactive charts or alerts, and embed them
+within your content.
+This makes writing long-form content with components a blast.
+🚀
+
+```md
+import {Chart} from './snowfall.js'
+export const year = 2018
+
+# Last year’s snowfall
+
+In {year}, the snowfall was above average.
+It was followed by a warm spring which caused
+flood conditions in many of the nearby rivers.
+
+<Chart year={year} color="#fcb32c" />
+```
+
+See [§ What is MDX](https://mdxjs.com/docs/what-is-mdx/) for more info on the
+format.
+See [§ Playground](https://mdxjs.com/playground/) to try it out.
+
+## What is this?
+
+This GitHub repository contains several packages for compiling the MDX format to
+JavaScript, integrating with bundlers such as webpack and Rollup, and for using
+it with frameworks such as React, Preact, and Vue.
+
+See [§ Getting started](https://mdxjs.com/getting-started/) for how to
+integrate MDX into your project.
+
+## Security
+
+See [§ Security][security] on our site for information.
+
+## Contribute
+
+See [§ Contribute][contribute] on our site for ways to get started.
+See [§ Support][support] for ways to get help.
+
+This project has a [code of conduct][coc].
+By interacting with this repository, organization, or community you agree to
+abide by its terms.

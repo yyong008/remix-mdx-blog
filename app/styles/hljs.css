@@ -1,0 +1,119 @@
+:root {
+  --hl-bg: #fefefe;
+  --hl-c: #545454;
+  --hl-comment-c: #696969;
+  --hl-deletion-variable: #d91e18;
+  --h1-attribute-type: #aa5d00;
+  --hl-addition-symbol: green;
+  --h1-section-title: #007faa;
+  --hl-keyword-selector-tag: #7928a1;
+}
+
+html.dark {
+  --hl-bg: #2b2b2b;
+  --hl-c: #f8f8f2;
+  --hl-comment-c: #d4d0ab;
+  --hl-deletion-variable: #ffa07a;
+  --h1-attribute-type: #f5ab35;
+  --hl-addition-symbol: #abe338;
+  --h1-section-title: #00e0e0;
+  --hl-keyword-selector-tag: #dcc6e0;
+}
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+/*!
+  Theme: a11y-light
+  Author: @ericwbailey
+  Maintainer: @ericwbailey
+
+  Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+*/
+.hljs {
+  background: var(--hl-bg);
+  color: var(--hl-c);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--hl-comment-c);
+}
+
+.hljs-deletion,
+.hljs-name,
+.hljs-regexp,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-template-variable,
+.hljs-variable {
+  color: var(--hl-deletion-variable);
+}
+
+.hljs-attribute,
+.hljs-built_in,
+.hljs-link,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-params,
+.hljs-type {
+  color: var(--h1-attribute-type);
+}
+
+.hljs-addition,
+.hljs-bullet,
+.hljs-string,
+.hljs-symbol {
+  color: var(--hl-addition-symbol);
+}
+
+.hljs-section,
+.hljs-title {
+  color: var(--h1-section-title);
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: var(--hl-keyword-selector-tag);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-quote,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type {
+    color: highlight;
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag {
+    font-weight: 700;
+  }
+}
