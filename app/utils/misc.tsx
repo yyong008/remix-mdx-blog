@@ -5,6 +5,7 @@ function getRequiredEnvVarFromObj(
 ) {
   let value = devValue
   const envVal = obj[key]
+  console.log('envVal', envVal, obj, key)
   if (envVal) {
     value = envVal
   } else if (obj.NODE_ENV === 'production') {
