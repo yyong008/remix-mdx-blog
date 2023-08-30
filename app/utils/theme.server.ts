@@ -7,7 +7,7 @@ const themeStorage = createCookieSessionStorage({
   cookie: {
     name: 'remix_blog',
     secure: true,
-    // secrets: [getRequiredServerEnvVar('SESSION_SECRET')],
+    secrets: [getRequiredServerEnvVar('SESSION_SECRET')],
     sameSite: 'lax',
     path: '/',
     // no theme for you on Kent's 100th birthday! 😂
