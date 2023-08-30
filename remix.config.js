@@ -12,7 +12,8 @@ module.exports = {
     v2_errorBoundary: true,
     v2_routeConvention: true,
     v2_normalizeFormMethod: true,
-    unstable_dev: true
+    v2_dev: true,
+    v2_headers: true
   },
   async routes(defineRoutes) {
     const files = globSync('./app/routes/posts/*.mdx').map((f) => {
