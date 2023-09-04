@@ -100,8 +100,9 @@ export type LoaderData = {
 export const loader: LoaderFunction = async ({ request }) => {
   const themeSession = await getThemeSession(request)
 
-  const data: LoaderData = {
-    theme: themeSession.getTheme()
+  const data: LoaderData & { revalidate: number } = {
+    theme: themeSession.getTheme(),
+    revalidate: 60 //
   }
 
   return data
