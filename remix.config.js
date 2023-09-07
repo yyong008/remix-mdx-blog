@@ -3,10 +3,15 @@ const { globSync } = require('glob')
 
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+  server:
+    process.env.NETLIFY || process.env.NETLIFY_LOCAL
+      ? './server.ts'
+      : undefined,
+  serverBuildPath: '.netlify/functions-internal/server.js',
   ignoredRouteFiles: ['**/.*'],
   serverModuleFormat: 'cjs',
   serverDependenciesToBundle: ['mdx-bundler'],
-  watchPaths: ['./app/routes/posts/*.mdx'],
+  // watchPaths: ['./app/routes/posts/*.mdx'],
   future: {
     v2_meta: true,
     v2_errorBoundary: true,

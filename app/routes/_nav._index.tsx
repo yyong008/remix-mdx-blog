@@ -6,7 +6,6 @@ import { getPostsSortedByDate } from '~/utils/posts.server'
 
 export const loader = async () => {
   const posts = (await getPostsSortedByDate()).slice(0, 4)
-
   return json({
     posts: posts
   })

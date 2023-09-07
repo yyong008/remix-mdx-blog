@@ -15,6 +15,7 @@ process.env.ESBUILD_BINARY_PATH = path.join(
   ...bins
 )
 
+const postsPath = path.join(__dirname, '../routes/posts')
 export async function getPostsModules() {
   const mods: Mod[] = []
   const files = globSync('./app/routes/posts/*.mdx').map((p) =>
@@ -22,18 +23,19 @@ export async function getPostsModules() {
   )
 
   for (const file of files) {
-    const _path = path.join(__dirname, '../', file)
+    const _path = path.join(process.cwd(), file)
     const rawPathCode = fs.readFileSync(_path).toString()
 
     const { frontmatter } = await bundleMDX({
       source: rawPathCode
     })
 
-    mods.push({
+    const _mod = {
       filename: file.replace('.mdx', ''),
       route: file.replace('app/routes', '').replace('.mdx', ''),
       ...(frontmatter as Frontmatter)
-    })
+    }
+    mods.push(_mod)
   }
 
   return mods

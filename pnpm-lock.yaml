@@ -8,6 +8,12 @@ dependencies:
   '@mdx-js/esbuild':
     specifier: ^2.3.0
     version: 2.3.0(esbuild@0.17.19)
+  '@netlify/functions':
+    specifier: ^1.6.0
+    version: 1.6.0
+  '@netlify/remix-adapter':
+    specifier: ^1.0.0
+    version: 1.0.0(@netlify/functions@1.6.0)
   '@remix-run/css-bundle':
     specifier: ^1.19.3
     version: 1.19.3
@@ -56,6 +62,9 @@ dependencies:
   remark-gfm:
     specifier: ^3.0.1
     version: 3.0.1
+  source-map-support:
+    specifier: ^0.5.21
+    version: 0.5.21
 
 devDependencies:
   '@remix-run/dev':
@@ -2747,6 +2756,29 @@ packages:
       vfile: 5.3.7
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@netlify/functions@1.6.0:
+    resolution:
+      {
+        integrity: sha512-6G92AlcpFrQG72XU8YH8pg94eDnq7+Q0YJhb8x4qNpdGsvuzvrfHWBmqFGp/Yshmv4wex9lpsTRZOocdrA2erQ==
+      }
+    engines: { node: '>=14.0.0' }
+    dependencies:
+      is-promise: 4.0.0
+    dev: false
+
+  /@netlify/remix-adapter@1.0.0(@netlify/functions@1.6.0):
+    resolution:
+      {
+        integrity: sha512-4lI6cPybkXvElk1Wn8FbowxH6xWOX9rG9e963YFIzpyCTV61pu7JA+MDNPw18tZCOkzBfXqTFP/qqdm7Uleudg==
+      }
+    engines: { node: '>=14' }
+    peerDependencies:
+      '@netlify/functions': ^1.0.0
+    dependencies:
+      '@netlify/functions': 1.6.0
+      '@remix-run/node': 1.19.3
     dev: false
 
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
@@ -7299,6 +7331,13 @@ packages:
         integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==
       }
     engines: { node: '>=12' }
+
+  /is-promise@4.0.0:
+    resolution:
+      {
+        integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==
+      }
+    dev: false
 
   /is-reference@3.0.1:
     resolution:
