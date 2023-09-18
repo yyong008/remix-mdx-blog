@@ -1,6 +1,5 @@
 # Welcome to Remix Mdx Blog!
 
-
 A light blog usage remix with mdx file.
 
 ## usage
@@ -8,10 +7,6 @@ A light blog usage remix with mdx file.
 ```sh
 git clone https://github.com/yyong008/remix-mdx-blog.git
 ```
-
-## visit
-
-> https://remix-mdx-blog.vercel.app
 
 ## run
 
