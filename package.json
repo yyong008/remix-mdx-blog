@@ -1,7 +1,8 @@
 {
   "name": "remix-mdx-blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A light blog usage remix with mdx",
+  "type": "module",
   "keywords": [
     "blog",
     "mdx",
@@ -49,7 +50,8 @@
     "rehype-external-links": "^3.0.0",
     "rehype-highlight": "^7.0.0",
     "remark-frontmatter": "^5.0.0",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^3.0.1",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.0.0",

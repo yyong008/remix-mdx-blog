@@ -1,37 +1,53 @@
 import type { Mod, Frontmatter } from './types'
 
 import fs from 'node:fs'
-import path from 'node:path'
+import { fileURLToPath } from 'url'
+import path, { dirname } from 'node:path'
 
 import { globSync } from 'glob'
 import { bundleMDX } from 'mdx-bundler'
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+const blogsRoot = process.cwd() + '/posts/**/*.mdx'
 const bins: string[] =
   process.platform === 'win32' ? ['esbuild', 'esbuild.exe'] : ['bin', 'esbuild']
 
-process.env.ESBUILD_BINARY_PATH = path.join(
-  process.cwd(),
-  'node_modules',
-  ...bins
-)
+const [rehypeHighlight, rehypeExternalLinks, gfm] = await Promise.all([
+  import('rehype-highlight').then((mod) => mod.default),
+  import('rehype-external-links').then((mod) => mod.default),
+  import('remark-gfm').then((mod) => mod.default)
+])
 
 export async function getPostsModules() {
   const mods: Mod[] = []
-  const files = globSync('./app/routes/posts/*.mdx').map((p) =>
-    p.split(path.sep).join('/')
-  )
+  const files = globSync(blogsRoot).map((p) => p.split(path.sep).join('/'))
 
   for (const file of files) {
     const _path = path.join(__dirname, '../', file)
     const rawPathCode = fs.readFileSync(_path).toString()
 
-    const { frontmatter } = await bundleMDX({
-      source: rawPathCode
+    const { frontmatter, code } = await bundleMDX({
+      source: rawPathCode,
+      mdxOptions(options) {
+        options.rehypePlugins = [
+          ...(options.rehypePlugins ?? []),
+          rehypeHighlight,
+          rehypeExternalLinks
+        ] as any
+        options.remarkPlugins = [
+          ...(options.remarkPlugins ?? []),
+          [gfm, { singleTilde: false }]
+        ]
+        return options
+      }
     })
 
     mods.push({
       filename: file.replace('.mdx', ''),
       route: file.replace('app/routes', '').replace('.mdx', ''),
+      code,
       ...(frontmatter as Frontmatter)
     })
   }

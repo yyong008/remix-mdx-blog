@@ -1,7 +1,7 @@
 import type {
   LinksFunction,
   LoaderFunction,
-  V2_MetaFunction
+  MetaFunction
 } from '@remix-run/node'
 import type { Theme } from '~/utils/theme-provider'
 
@@ -47,7 +47,7 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])
 ]
 
-export const meta: V2_MetaFunction = ({ location }) => {
+export const meta: MetaFunction = ({ location }) => {
   return [
     { title: config.title },
     {

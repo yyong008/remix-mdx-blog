@@ -1,16 +1,27 @@
-import { type V2_MetaFunction, json } from '@remix-run/node'
+// types
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+
+// core
+import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
+
+// components
 import TagBadge from '~/components/TagBadge'
-import { config } from '~/config/website'
+
+// utils
 import { getTagsAndCount } from '~/utils/posts.server'
 
-export const loader = async () => {
+// config
+
+import { config } from '~/config/website'
+
+export const loader: LoaderFunction = async () => {
   const _tags = await getTagsAndCount()
   const tags = Object.entries(_tags).sort((a, b) => b[1] - a[1])
   return json({ tags })
 }
 
-export const meta: V2_MetaFunction = ({ params }) => {
+export const meta: MetaFunction = ({ params }) => {
   const { tag } = params
   const title = `Tags - ${config.author}`
   const summary = `Posts about ${tag} of ${config.author}.`
@@ -32,18 +43,18 @@ export const meta: V2_MetaFunction = ({ params }) => {
 }
 
 export default function TagRoutes() {
-  const { tags } = useLoaderData()
+  const { tags } = useLoaderData() as any
   return (
     <div className='tags-contaier'>
       <h1>标签</h1>
       <div>
-        {tags.map((tag: [string, number]) => {
+        {tags?.map((tag: [string, number]) => {
           return (
             <TagBadge
               to={`/tags/${tag[0]}`}
               key={tag[0]}
               label={`${tag[0]} (${tag[1]})`}
-            ></TagBadge>
+            />
           )
         })}
       </div>

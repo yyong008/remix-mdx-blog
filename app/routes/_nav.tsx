@@ -22,7 +22,7 @@ export default function BlogNav() {
           <Link to='/tags'>标签</Link>
           <Link to='/about'>关于</Link>
           <span onClick={handleThemeChange}>
-            {theme === 'light' ? '🔆' : '🌙'}
+            {theme === 'light' ? '🌙' : '🔆'}
           </span>
         </div>
       </div>

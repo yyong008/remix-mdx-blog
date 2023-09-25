@@ -1,4 +1,4 @@
-import { V2_MetaFunction, json } from '@remix-run/node'
+import { MetaFunction, json } from '@remix-run/node'
 import { useLoaderData, useParams } from '@remix-run/react'
 import PostList from '~/components/PostList'
 import TagSearch from '~/components/TagSearch'
@@ -16,7 +16,7 @@ interface Params {
   tag: string
 }
 
-export const meta: V2_MetaFunction = ({ params }) => {
+export const meta: MetaFunction = ({ params }) => {
   const { tag } = params
   const title = `${tag} - ${config.author}`
   const summary = `Posts about ${tag} of ${config.author}.`
@@ -60,7 +60,7 @@ export const loader = async ({
 
 export default function TagList() {
   const { tag } = useParams()
-  const { posts, query, ...pageData } = useLoaderData()
+  const { posts, query, ...pageData } = useLoaderData() as any
 
   if (!tag) {
     return null

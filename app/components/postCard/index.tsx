@@ -6,7 +6,10 @@ export default function PostCard({ post }: any) {
       <div className='publish-time'>发布时间：{post.date}</div>
       <h1>{post.title}</h1>
       <div className='summary'>{post.summary}</div>
-      <Link to={post.route} className='read-more'>
+      <Link
+        to={post.route.startsWith('/') ? post.route : `/${post.route}`}
+        className='read-more'
+      >
         查看更多
       </Link>
     </div>

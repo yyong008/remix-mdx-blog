@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react'
 
 type ITagBadge = {
   to: string
-  tag: string
+  tag?: string
   label: string
 }
 

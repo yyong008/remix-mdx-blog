@@ -1,12 +1,12 @@
-import type { V2_MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from '@remix-run/node'
 import { config } from '~/config/website'
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   const title = `About - ${config.author}`
   const summary = `About me - ${config.author}`
 
   return [
-    { title},
+    { title },
     {
       property: 'description',
       content: summary
@@ -25,7 +25,7 @@ export const meta: V2_MetaFunction = () => {
 export default function AboutRoute() {
   return (
     <div className='page-about'>
-      <img className='page-about-avatar' src="/logo.svg" alt='author' />
+      <img className='page-about-avatar' src='/logo.svg' alt='author' />
       <div className='page-about-author'>{config.author}</div>
       <div>
         在当今数字时代，博客已经成为人们分享观点、传递知识和与世界互动的重要平台。随着技术的不断发展，开发者们不断寻找更高效、更灵活的工具来创建博客。在本文中，我们将介绍一种创新的技术栈，结合Remix
