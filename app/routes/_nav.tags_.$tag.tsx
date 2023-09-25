@@ -4,6 +4,7 @@ import PostList from '~/components/PostList'
 import TagSearch from '~/components/TagSearch'
 import { config as _config } from '~/config/website'
 // import PostCard from "~/components/postCard";
+import { json as vercelJson } from '@vercel/remix'
 
 import {
   filterPostsByTitle,
@@ -55,7 +56,9 @@ export const loader = async ({
 
   const filteredPosts = posts.filter((post) => post.tags.includes(tag))
   const data = getPagingData(request, filteredPosts)
-  return json({ ...data, query })
+  return process.env.IS_VERCEL
+    ? vercelJson({ ...data, query })
+    : json({ ...data, query })
 }
 
 export const config = { runtime: 'nodejs' }

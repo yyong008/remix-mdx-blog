@@ -39,6 +39,7 @@
     "@remix-run/node": "^2.0.1",
     "@remix-run/react": "^2.0.1",
     "@remix-run/serve": "^2.0.1",
+    "@vercel/remix": "^2.0.1",
     "esbuild": "^0.19.3",
     "github-markdown-css": "^5.2.0",
     "glob": "^10.3.7",

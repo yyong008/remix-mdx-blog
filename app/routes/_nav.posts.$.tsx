@@ -5,6 +5,7 @@ import PostHeader from '~/components/postHeader'
 import { useMemo } from 'react'
 import { useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/node'
+import { json as vercelJson } from '@vercel/remix'
 
 // components
 import ScrollToTop from '~/components/BackTop'
@@ -39,7 +40,7 @@ export const loader: LoaderFunction = async ({ request }) => {
       ? post.route
       : `/${post.route}` === `${pathname}`
   })
-  return json(post)
+  return process.env.IS_VERCEL ? vercelJson(post) : json(post)
 }
 
 export const config = { runtime: 'nodejs' }
