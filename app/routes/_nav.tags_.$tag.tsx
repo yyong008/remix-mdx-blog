@@ -2,7 +2,7 @@ import { MetaFunction, json } from '@remix-run/node'
 import { useLoaderData, useParams } from '@remix-run/react'
 import PostList from '~/components/PostList'
 import TagSearch from '~/components/TagSearch'
-import { config } from '~/config/website'
+import { config as _config } from '~/config/website'
 // import PostCard from "~/components/postCard";
 
 import {
@@ -18,8 +18,8 @@ interface Params {
 
 export const meta: MetaFunction = ({ params }) => {
   const { tag } = params
-  const title = `${tag} - ${config.author}`
-  const summary = `Posts about ${tag} of ${config.author}.`
+  const title = `${tag} - ${_config.author}`
+  const summary = `Posts about ${tag} of ${_config.author}.`
 
   return [
     { title },
@@ -57,6 +57,8 @@ export const loader = async ({
   const data = getPagingData(request, filteredPosts)
   return json({ ...data, query })
 }
+
+export const config = { runtime: 'nodejs' }
 
 export default function TagList() {
   const { tag } = useParams()

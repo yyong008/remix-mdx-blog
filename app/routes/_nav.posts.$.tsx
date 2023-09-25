@@ -42,6 +42,8 @@ export const loader: LoaderFunction = async ({ request }) => {
   return json(post)
 }
 
+export const config = { runtime: 'nodejs' }
+
 export default function PostsPage() {
   const data: any = useLoaderData()
   const code = data.code

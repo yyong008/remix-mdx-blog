@@ -21,7 +21,7 @@
     "dev": "remix dev",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write app/*",
-    "start": "remix-serve build",
+    "start": "remix-serve ./build/index.js",
     "test": "vitest",
     "typecheck": "tsc"
   },
@@ -35,15 +35,15 @@
   },
   "dependencies": {
     "@mdx-js/esbuild": "^2.3.0",
-    "@remix-run/css-bundle": "^2.0.0",
-    "@remix-run/node": "^2.0.0",
-    "@remix-run/react": "^2.0.0",
-    "@remix-run/serve": "^2.0.0",
+    "@remix-run/css-bundle": "^2.0.1",
+    "@remix-run/node": "^2.0.1",
+    "@remix-run/react": "^2.0.1",
+    "@remix-run/serve": "^2.0.1",
     "esbuild": "^0.19.3",
     "github-markdown-css": "^5.2.0",
-    "glob": "^10.3.4",
+    "glob": "^10.3.7",
     "highlight.js": "^11.8.0",
-    "isbot": "^3.6.13",
+    "isbot": "^3.7.0",
     "mdx-bundler": "^9.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -54,16 +54,16 @@
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.0.0",
-    "@remix-run/eslint-config": "^2.0.0",
-    "@types/react": "^18.2.21",
+    "@remix-run/dev": "^2.0.1",
+    "@remix-run/eslint-config": "^2.0.1",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2",
-    "vitest": "^0.34.4"
+    "vitest": "^0.34.5"
   },
   "engines": {
     "node": ">=14"
